@@ -49,6 +49,8 @@ public class ParkourController : MonoBehaviour
                 StartCoroutine(DoParkourAction(jumpDownAction));
             }
         }
+
+       
     }
 
     IEnumerator DoParkourAction(ParkourAction action)

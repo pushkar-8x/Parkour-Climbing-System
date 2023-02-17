@@ -59,9 +59,9 @@ public class ClimbController : MonoBehaviour
                 currentPoint = neighbour.point;
 
                 if (neighbour.direction.y == 1)
-                    StartCoroutine(JumpToLedge("HangHopUp", currentPoint.transform, 0.35f, 0.65f, handOffset: new Vector3(0.25f, 0.08f, 0.15f)));
+                    StartCoroutine(JumpToLedge("HangHopUp", currentPoint.transform, 0.35f, 0.65f, handOffset: new Vector3(0.25f, 0f, 0.15f)));
                 else if (neighbour.direction.y == -1)
-                    StartCoroutine(JumpToLedge("HangHopDown", currentPoint.transform, 0.31f, 0.65f, handOffset: new Vector3(0.25f, 0.1f, 0.13f)));
+                    StartCoroutine(JumpToLedge("HangHopDown", currentPoint.transform, 0.31f, 0.65f, handOffset: new Vector3(0.25f, 0f, 0.13f)));
                 else if (neighbour.direction.x == 1)
                     StartCoroutine(JumpToLedge("HangHopRight", currentPoint.transform, 0.20f, 0.50f));
                 else if (neighbour.direction.x == -1)
@@ -72,9 +72,9 @@ public class ClimbController : MonoBehaviour
                 currentPoint = neighbour.point;
 
                 if (neighbour.direction.x == 1)
-                    StartCoroutine(JumpToLedge("ShimmyRight", currentPoint.transform, 0f, 0.38f, handOffset: new Vector3(0.25f, 0.05f, 0.1f)));
+                    StartCoroutine(JumpToLedge("ShimmyRight", currentPoint.transform, 0f, 0.38f, handOffset: new Vector3(0.25f, 0f, 0.1f)));
                 else if (neighbour.direction.x == -1)
-                    StartCoroutine(JumpToLedge("ShimmyLeft", currentPoint.transform, 0f, 0.38f, AvatarTarget.LeftHand, handOffset: new Vector3(0.25f, 0.05f, 0.1f)));
+                    StartCoroutine(JumpToLedge("ShimmyLeft", currentPoint.transform, 0f, 0.38f, AvatarTarget.LeftHand, handOffset: new Vector3(0.25f, 0f, 0.1f)));
             }
         }
     }
@@ -101,7 +101,7 @@ public class ClimbController : MonoBehaviour
 
     Vector3 GetHandPos(Transform ledge, AvatarTarget hand, Vector3? handOffset)
     {
-        var offVal = (handOffset != null) ? handOffset.Value : new Vector3(0.25f, 0.1f, 0.1f);
+        var offVal = (handOffset != null) ? handOffset.Value : new Vector3(0.25f, 0f, 0.1f);
 
         var hDir = (hand == AvatarTarget.RightHand) ? ledge.right : -ledge.right;
         return ledge.position + ledge.forward * offVal.z + Vector3.up * offVal.y - hDir * offVal.x;
